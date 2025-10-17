@@ -1,4 +1,10 @@
 package com.davi.conta_bancaria.application.dto.response;
 
-public record ContaResponseDTO() {
-}
+import java.math.BigDecimal;
+
+public record ContaResponseDTO(
+        Long id,
+        Long numeroConta,
+        BigDecimal saldo,
+        Long usuarioId
+) {}
