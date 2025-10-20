@@ -11,7 +11,7 @@ public class Conta {
     @Id
     @GeneratedValue
     private Long id;
-    private Long agencia;
+    private String agencia;
     private Long numeroConta;
     private BigDecimal saldo = BigDecimal.ZERO;
 
@@ -22,8 +22,16 @@ public class Conta {
         return id;
     }
 
-    public Long getAgencia() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAgencia() {
         return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
     }
 
     public Long getNumeroConta() {

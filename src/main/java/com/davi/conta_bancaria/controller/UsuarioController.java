@@ -1,9 +1,10 @@
 package com.davi.conta_bancaria.controller;
 
 import com.davi.conta_bancaria.application.dto.request.UsuarioRequestDTO;
+import com.davi.conta_bancaria.application.dto.response.CriarUsuarioContaResponseDTO;
 import com.davi.conta_bancaria.application.dto.response.UsuarioResponseDTO;
 import com.davi.conta_bancaria.application.usecase.BuscarUsuarioCpfUseCase;
-import com.davi.conta_bancaria.application.usecase.CriarUsuarioUseCase;
+import com.davi.conta_bancaria.application.usecase.CriarContaUsuarioUseCase;
 import com.davi.conta_bancaria.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,26 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
-    private final CriarUsuarioUseCase criarUsuarioUseCase;
+    private final CriarContaUsuarioUseCase criarContaUsuarioUseCase;
     private final BuscarUsuarioCpfUseCase buscarUsuarioCpfUseCase;
 
     @Autowired
-    public UsuarioController(CriarUsuarioUseCase criarUsuarioUseCase,
+    public UsuarioController(CriarContaUsuarioUseCase criarContaUsuarioUseCase,
                              BuscarUsuarioCpfUseCase buscarUsuarioCpfUseCase) {
-        this.criarUsuarioUseCase = criarUsuarioUseCase;
+        this.criarContaUsuarioUseCase = criarContaUsuarioUseCase;
         this.buscarUsuarioCpfUseCase = buscarUsuarioCpfUseCase;
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> criarUsuario(@RequestBody UsuarioRequestDTO requestDTO) {
-        Usuario usuarioCriado = criarUsuarioUseCase.executar(requestDTO);
-
-        UsuarioResponseDTO responseDTO = new UsuarioResponseDTO(
-                usuarioCriado.getId(),
-                usuarioCriado.getCpf(),
-                usuarioCriado.getNomeTitular(),
-                usuarioCriado.getEmail()
-        );
+    public ResponseEntity<CriarUsuarioContaResponseDTO> criarUsuario(@RequestBody UsuarioRequestDTO requestDTO) {
+        CriarUsuarioContaResponseDTO responseDTO = criarContaUsuarioUseCase.executarCriarUsuario(requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }
 

@@ -2,9 +2,11 @@ package com.davi.conta_bancaria.application.service;
 
 import com.davi.conta_bancaria.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.concurrent.ThreadLocalRandom;
 
-
+@Service
 public class ContaFactory {
     @Autowired
     private ContaRepository contaRepository;

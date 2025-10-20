@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public record ContaResponseDTO(
         Long id,
-        Long agencia,
+        String agencia,
         Long numeroConta,
         BigDecimal saldo
 ) {}
