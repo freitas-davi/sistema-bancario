@@ -19,8 +19,8 @@ public class BuscarUsuarioCpfUseCase {
 
         return new UsuarioResponseDTO(
                 usuario.getId(),
-                usuario.getNomeTitular(),
                 usuario.getCpf(),
+                usuario.getNomeTitular(),
                 usuario.getEmail()
         );
     }

@@ -15,11 +15,11 @@ public class CriarUsuarioUseCase {
 
     public Usuario executar(UsuarioRequestDTO dto) {
         if (usuarioRepository.existsByCpf(dto.cpf())){
-            throw new RuntimeException("Esse CPF já está sendo usado por outra conta!");
+            throw new RuntimeException("Esse CPF já está sendo usado em outra conta!");
         }
         Usuario usuario = new Usuario();
-        usuario.setNomeTitular(dto.nomeTitular());
         usuario.setCpf(dto.cpf());
+        usuario.setNomeTitular(dto.nomeTitular());
         usuario.setEmail(dto.email());
 
         return usuarioRepository.save(usuario);

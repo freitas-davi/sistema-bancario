@@ -14,8 +14,8 @@ public class Usuario {
     @Id
     @GeneratedValue
     private Long id;
-    private String nomeTitular;
     private String cpf;
+    private String nomeTitular;
     private String email;
 
 

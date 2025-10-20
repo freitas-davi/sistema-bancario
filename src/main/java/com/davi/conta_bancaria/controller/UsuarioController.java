@@ -29,8 +29,8 @@ public class UsuarioController {
 
         UsuarioResponseDTO responseDTO = new UsuarioResponseDTO(
                 usuarioCriado.getId(),
-                usuarioCriado.getNomeTitular(),
                 usuarioCriado.getCpf(),
+                usuarioCriado.getNomeTitular(),
                 usuarioCriado.getEmail()
         );
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);

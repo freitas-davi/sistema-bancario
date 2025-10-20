@@ -6,6 +6,5 @@ public record ContaResponseDTO(
         Long id,
         Long agencia,
         Long numeroConta,
-        BigDecimal saldo,
-        Long usuarioId
+        BigDecimal saldo
 ) {}
