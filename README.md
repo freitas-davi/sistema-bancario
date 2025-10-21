@@ -2,7 +2,7 @@
 
 Um projeto desenvolvido em **Spring Boot**, aplicando **Arquitetura Hexagonal** e boas práticas de desenvolvimento com **DTOs**, **camadas desacopladas** e um **banco H2 em memória**.
 
-O objetivo é simular um **sistema bancário simples**, com funcionalidades de criação de usuários e contas bancárias, e servir como base para o estudo de **arquitetura limpa, testes e segurança**.
+O objetivo é simular um **sistema bancário**, com funcionalidades de criação de usuários, contas bancárias, operações financeiras, e servir como base para o estudo.
 
 ---
 ## 🧩 Tecnologias Utilizadas
