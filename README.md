@@ -30,4 +30,16 @@ O objetivo é simular um **sistema bancário**, com funcionalidades de criação
 - Autenticação com **JWT**
 - Validação de **CPF**
 - Depósito, saque e transferência
-- Testes unitários com **JUnit 5**
+
+## ⚙️ Endpoints
+
+### **POST** `/usuarios`
+- Criar **Usuário**   
+- Criar automaticamente uma **Conta Bancária** associada
+- Geração de **número de conta aleatório (10 dígitos)**
+
+### **GET** `/usuarios/{cpf}`
+- Busca **Usuário** através do CPF
+- Retorna dados do **Usuário** e dados da **Conta** vinculada ao Usuário
+
+

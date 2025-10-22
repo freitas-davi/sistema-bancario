@@ -1,6 +1,7 @@
 package com.davi.conta_bancaria.adapter.in.controller;
 
 import com.davi.conta_bancaria.adapter.in.dto.request.UsuarioRequestDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.BuscarUsuarioContaResponseDTO;
 import com.davi.conta_bancaria.adapter.in.dto.response.CriarUsuarioContaResponseDTO;
 import com.davi.conta_bancaria.adapter.in.dto.response.UsuarioResponseDTO;
 import com.davi.conta_bancaria.application.usecase.BuscarUsuarioCpfUseCase;
@@ -30,8 +31,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{cpf}")
-    public ResponseEntity<UsuarioResponseDTO> buscarCpf(@PathVariable String cpf) {
-        UsuarioResponseDTO usuario = buscarUsuarioCpfUseCase.executar(cpf);
+    public ResponseEntity<BuscarUsuarioContaResponseDTO> buscarCpf(@PathVariable String cpf) {
+        BuscarUsuarioContaResponseDTO usuario = buscarUsuarioCpfUseCase.executarBusca(cpf);
         return ResponseEntity.ok(usuario);
     }
 
