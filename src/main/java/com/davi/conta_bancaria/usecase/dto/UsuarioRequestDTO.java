@@ -1,4 +1,4 @@
-package com.davi.conta_bancaria.application.dto.request;
+package com.davi.conta_bancaria.usecase.dto;
 
 public record UsuarioRequestDTO (
         String cpf,

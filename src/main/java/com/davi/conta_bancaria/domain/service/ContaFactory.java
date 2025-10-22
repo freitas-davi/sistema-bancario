@@ -1,9 +1,8 @@
-package com.davi.conta_bancaria.application.service;
+package com.davi.conta_bancaria.domain.service;
 
-import com.davi.conta_bancaria.repository.ContaRepository;
+import com.davi.conta_bancaria.adapter.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service

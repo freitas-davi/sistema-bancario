@@ -1,8 +1,8 @@
-package com.davi.conta_bancaria.application.usecase;
+package com.davi.conta_bancaria.usecase.implementation;
 
-import com.davi.conta_bancaria.application.dto.response.UsuarioResponseDTO;
-import com.davi.conta_bancaria.model.Usuario;
-import com.davi.conta_bancaria.repository.UsuarioRepository;
+import com.davi.conta_bancaria.usecase.dto.UsuarioResponseDTO;
+import com.davi.conta_bancaria.domain.entity.Usuario;
+import com.davi.conta_bancaria.adapter.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service

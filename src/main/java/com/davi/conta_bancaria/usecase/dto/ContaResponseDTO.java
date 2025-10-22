@@ -1,4 +1,4 @@
-package com.davi.conta_bancaria.application.dto.response;
+package com.davi.conta_bancaria.usecase.dto;
 
 import java.math.BigDecimal;
 

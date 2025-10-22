@@ -1,4 +1,4 @@
-package com.davi.conta_bancaria.model;
+package com.davi.conta_bancaria.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

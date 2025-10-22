@@ -1,12 +1,8 @@
-package com.davi.conta_bancaria.model;
+package com.davi.conta_bancaria.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.UniqueConstraint;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity

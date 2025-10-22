@@ -1,6 +1,6 @@
-package com.davi.conta_bancaria.repository;
+package com.davi.conta_bancaria.adapter.repository;
 
-import com.davi.conta_bancaria.model.Conta;
+import com.davi.conta_bancaria.domain.entity.Conta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

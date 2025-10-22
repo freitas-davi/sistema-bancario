@@ -1,6 +1,6 @@
 # 🏦 Banco Simulador - Spring Boot + Java 17
 
-Um projeto desenvolvido em **Spring Boot**, aplicando **Arquitetura Hexagonal** e boas práticas de desenvolvimento com **DTOs**, **camadas desacopladas** e um **banco H2 em memória**.
+Um projeto desenvolvido em **Spring Boot**, aplicando boas práticas de desenvolvimento com **DTOs**, **camadas desacopladas** e um **banco H2 em memória**.
 
 O objetivo é simular um **sistema bancário**, com funcionalidades de criação de usuários, contas bancárias, operações financeiras, e servir como base para o estudo.
 
