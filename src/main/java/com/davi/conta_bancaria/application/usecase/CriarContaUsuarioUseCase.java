@@ -1,14 +1,14 @@
-package com.davi.conta_bancaria.usecase.implementation;
+package com.davi.conta_bancaria.application.usecase;
 
-import com.davi.conta_bancaria.usecase.dto.UsuarioRequestDTO;
-import com.davi.conta_bancaria.usecase.dto.ContaResponseDTO;
-import com.davi.conta_bancaria.usecase.dto.CriarUsuarioContaResponseDTO;
-import com.davi.conta_bancaria.usecase.dto.UsuarioResponseDTO;
+import com.davi.conta_bancaria.adapter.in.dto.request.UsuarioRequestDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.ContaResponseDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.CriarUsuarioContaResponseDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.UsuarioResponseDTO;
 import com.davi.conta_bancaria.domain.service.ContaFactory;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
-import com.davi.conta_bancaria.adapter.repository.ContaRepository;
-import com.davi.conta_bancaria.adapter.repository.UsuarioRepository;
+import com.davi.conta_bancaria.adapter.out.ContaRepository;
+import com.davi.conta_bancaria.adapter.out.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;

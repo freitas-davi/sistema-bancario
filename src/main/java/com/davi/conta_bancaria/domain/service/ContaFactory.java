@@ -1,6 +1,6 @@
 package com.davi.conta_bancaria.domain.service;
 
-import com.davi.conta_bancaria.adapter.repository.ContaRepository;
+import com.davi.conta_bancaria.adapter.out.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.concurrent.ThreadLocalRandom;
@@ -10,7 +10,7 @@ public class ContaFactory {
     @Autowired
     private ContaRepository contaRepository;
 
-    /**
+    /*
      * Essa classe respresnta um gerador de números
      * Ela gera números de conta únicos e com 10 caracteres.
      */

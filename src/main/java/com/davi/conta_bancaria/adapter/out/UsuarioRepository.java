@@ -1,4 +1,4 @@
-package com.davi.conta_bancaria.adapter.repository;
+package com.davi.conta_bancaria.adapter.out;
 
 import com.davi.conta_bancaria.domain.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,3 +8,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     boolean existsByCpf(String cpf);
     Optional<Usuario> findByCpf(String cpf);
 }
+
+
+/*
+        Implementar Interface para comunicação externa em:
+        application -> port -> out
+ */

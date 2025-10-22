@@ -1,10 +1,10 @@
-package com.davi.conta_bancaria.adapter.controller;
+package com.davi.conta_bancaria.adapter.in.controller;
 
-import com.davi.conta_bancaria.usecase.dto.UsuarioRequestDTO;
-import com.davi.conta_bancaria.usecase.dto.CriarUsuarioContaResponseDTO;
-import com.davi.conta_bancaria.usecase.dto.UsuarioResponseDTO;
-import com.davi.conta_bancaria.usecase.implementation.BuscarUsuarioCpfUseCase;
-import com.davi.conta_bancaria.usecase.implementation.CriarContaUsuarioUseCase;
+import com.davi.conta_bancaria.adapter.in.dto.request.UsuarioRequestDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.CriarUsuarioContaResponseDTO;
+import com.davi.conta_bancaria.adapter.in.dto.response.UsuarioResponseDTO;
+import com.davi.conta_bancaria.application.usecase.BuscarUsuarioCpfUseCase;
+import com.davi.conta_bancaria.application.usecase.CriarContaUsuarioUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

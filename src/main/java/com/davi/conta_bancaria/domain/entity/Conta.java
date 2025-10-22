@@ -14,9 +14,9 @@ public class Conta {
     private String agencia;
     private Long numeroConta;
     private BigDecimal saldo = BigDecimal.ZERO;
-
     @OneToOne
     private Usuario usuario;
+
 
     public Long getId() {
         return id;

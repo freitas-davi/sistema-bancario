@@ -1,4 +1,4 @@
-package com.davi.conta_bancaria.usecase.dto;
+package com.davi.conta_bancaria.adapter.in.dto.response;
 
 public record UsuarioResponseDTO (
         Long id,
