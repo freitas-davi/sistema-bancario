@@ -3,6 +3,7 @@ package com.davi.conta_bancaria.adapter.out;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.Optional;
 
 public interface ContaRepository extends JpaRepository<Conta, Long> {

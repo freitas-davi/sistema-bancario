@@ -1,7 +1,6 @@
 package com.davi.conta_bancaria.application.usecase;
 
 import com.davi.conta_bancaria.adapter.in.dto.response.BuscarUsuarioContaResponseDTO;
-import com.davi.conta_bancaria.adapter.in.dto.response.UsuarioResponseDTO;
 import com.davi.conta_bancaria.adapter.out.ContaRepository;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
