@@ -8,9 +8,3 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     boolean existsByCpf(String cpf);
     Optional<Usuario> findByCpf(String cpf);
 }
-
-
-/*
-        Implementar Interface para comunicação externa em:
-        application -> port -> out
- */

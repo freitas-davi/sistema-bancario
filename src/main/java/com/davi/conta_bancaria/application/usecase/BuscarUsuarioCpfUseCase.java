@@ -1,27 +1,28 @@
 package com.davi.conta_bancaria.application.usecase;
 
 import com.davi.conta_bancaria.adapter.in.dto.response.BuscarUsuarioContaResponseDTO;
-import com.davi.conta_bancaria.adapter.out.ContaRepository;
+import com.davi.conta_bancaria.application.port.out.ContaRepositoryPort;
+import com.davi.conta_bancaria.application.port.out.UsuarioRepositoryPort;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
-import com.davi.conta_bancaria.adapter.out.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BuscarUsuarioCpfUseCase {
-    private final UsuarioRepository usuarioRepository;
-    private final ContaRepository contaRepository;
+    private final UsuarioRepositoryPort usuarioRepositoryPort;
+    private final ContaRepositoryPort contaRepositoryPort;
 
-    public BuscarUsuarioCpfUseCase(UsuarioRepository usuarioRepository, ContaRepository contaRepository) {
-        this.usuarioRepository = usuarioRepository;
-        this.contaRepository = contaRepository;
+    public BuscarUsuarioCpfUseCase(UsuarioRepositoryPort usuarioRepositoryPort, 
+                                   ContaRepositoryPort contaRepositoryPort) {
+        this.usuarioRepositoryPort = usuarioRepositoryPort;
+        this.contaRepositoryPort = contaRepositoryPort;
     }
 
     public BuscarUsuarioContaResponseDTO executarBusca(String cpf) {
-        Usuario usuario = usuarioRepository.findByCpf(cpf).orElseThrow(()
+        Usuario usuario = usuarioRepositoryPort.findByCpf(cpf).orElseThrow(()
                 -> new RuntimeException("Conta não encontrada!"));
 
-        Conta conta = contaRepository.findByUsuario(usuario);
+        Conta conta = contaRepositoryPort.findByUsuario(usuario);
 
         return new BuscarUsuarioContaResponseDTO(
                 usuario.getId(),

@@ -4,11 +4,11 @@ import com.davi.conta_bancaria.adapter.in.dto.request.UsuarioRequestDTO;
 import com.davi.conta_bancaria.adapter.in.dto.response.ContaResponseDTO;
 import com.davi.conta_bancaria.adapter.in.dto.response.CriarUsuarioContaResponseDTO;
 import com.davi.conta_bancaria.adapter.in.dto.response.UsuarioResponseDTO;
+import com.davi.conta_bancaria.application.port.out.ContaRepositoryPort;
+import com.davi.conta_bancaria.application.port.out.UsuarioRepositoryPort;
 import com.davi.conta_bancaria.domain.service.ContaFactory;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
-import com.davi.conta_bancaria.adapter.out.ContaRepository;
-import com.davi.conta_bancaria.adapter.out.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -16,22 +16,24 @@ import java.math.BigDecimal;
 
 @Service
 public class CriarContaUsuarioUseCase {
-    private final UsuarioRepository usuarioRepository;
-    private final ContaRepository contaRepository;
+    private final UsuarioRepositoryPort usuarioRepositoryPort;
+    private final ContaRepositoryPort contaRepositoryPort;
     private final ContaFactory contaFactory;
     private static final String NUMERO_AGENCIA = "0022";
 
-    public CriarContaUsuarioUseCase(UsuarioRepository usuarioRepository,
-                                    ContaRepository contaRepository,
+    public CriarContaUsuarioUseCase(UsuarioRepositoryPort usuarioRepositoryPort,
+                                    ContaRepositoryPort contaRepositoryPort,
                                     ContaFactory contaFactory) {
-        this.usuarioRepository = usuarioRepository;
-        this.contaRepository = contaRepository;
+
+        this.usuarioRepositoryPort = usuarioRepositoryPort;
+        this.contaRepositoryPort = contaRepositoryPort;
         this.contaFactory = contaFactory;
+
     }
 
     @Transactional
     public CriarUsuarioContaResponseDTO executarCriarUsuario(UsuarioRequestDTO requestDTO) {
-        if(usuarioRepository.existsByCpf(requestDTO.cpf())) {
+        if(usuarioRepositoryPort.existsByCpf(requestDTO.cpf())) {
             throw new RuntimeException("Usuário com CPF já existente.");
             // FAZER VALIDAÇÃO DE CPF
         }
@@ -39,7 +41,7 @@ public class CriarContaUsuarioUseCase {
         usuario.setCpf(requestDTO.cpf());
         usuario.setNomeTitular(requestDTO.nomeTitular());
         usuario.setEmail(requestDTO.email());
-        Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        Usuario usuarioSalvo = usuarioRepositoryPort.save(usuario);
 
         Long numeroConta = contaFactory.gerarNumeroConta();
 
@@ -48,7 +50,7 @@ public class CriarContaUsuarioUseCase {
         conta.setNumeroConta(numeroConta);
         conta.setSaldo(BigDecimal.ZERO);
         conta.setUsuario(usuario);
-        Conta contaSalva = contaRepository.save(conta);
+        Conta contaSalva = contaRepositoryPort.save(conta);
 
         UsuarioResponseDTO usuarioResponseDTO = new UsuarioResponseDTO(
                 usuarioSalvo.getId(),
@@ -64,5 +66,4 @@ public class CriarContaUsuarioUseCase {
         );
         return new CriarUsuarioContaResponseDTO(usuarioResponseDTO, contaResponseDTO);
     }
-
 }
