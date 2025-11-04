@@ -9,6 +9,7 @@ import com.davi.conta_bancaria.application.port.out.UsuarioRepositoryPort;
 import com.davi.conta_bancaria.domain.service.ContaFactory;
 import com.davi.conta_bancaria.domain.entity.Conta;
 import com.davi.conta_bancaria.domain.entity.Usuario;
+import com.davi.conta_bancaria.domain.service.CPFValidation;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -24,19 +25,21 @@ public class CriarContaUsuarioUseCase {
     public CriarContaUsuarioUseCase(UsuarioRepositoryPort usuarioRepositoryPort,
                                     ContaRepositoryPort contaRepositoryPort,
                                     ContaFactory contaFactory) {
-
         this.usuarioRepositoryPort = usuarioRepositoryPort;
         this.contaRepositoryPort = contaRepositoryPort;
         this.contaFactory = contaFactory;
-
     }
 
     @Transactional
     public CriarUsuarioContaResponseDTO executarCriarUsuario(UsuarioRequestDTO requestDTO) {
-        if(usuarioRepositoryPort.existsByCpf(requestDTO.cpf())) {
-            throw new RuntimeException("Usuário com CPF já existente.");
-            // FAZER VALIDAÇÃO DE CPF
+        if (!CPFValidation.isCPF(requestDTO.cpf())) {
+            throw new RuntimeException("CPF invalido!");
         }
+
+        if (usuarioRepositoryPort.existsByCpf(requestDTO.cpf())) {
+            throw new RuntimeException("CPF já existente!");
+        }
+
         Usuario usuario = new Usuario();
         usuario.setCpf(requestDTO.cpf());
         usuario.setNomeTitular(requestDTO.nomeTitular());

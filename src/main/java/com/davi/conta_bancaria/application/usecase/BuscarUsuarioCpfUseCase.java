@@ -26,8 +26,8 @@ public class BuscarUsuarioCpfUseCase {
 
         return new BuscarUsuarioContaResponseDTO(
                 usuario.getId(),
-                usuario.getCpf(),
                 usuario.getNomeTitular(),
+                usuario.getCpf(),
                 conta.getNumeroConta()
         );
     }
