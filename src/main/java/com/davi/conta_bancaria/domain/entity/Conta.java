@@ -17,6 +17,23 @@ public class Conta {
     @OneToOne
     private Usuario usuario;
 
+    public void sacar(BigDecimal valor) {
+        if(valor.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Valor inválido!");
+        }
+        if(valor.compareTo(saldo) > 0) {
+            throw new IllegalArgumentException("Saldo insuficiente!");
+        }
+        saldo = saldo.subtract(valor);
+    }
+
+    public void depositar(BigDecimal valorDeposito) {
+        if(valorDeposito.compareTo(BigDecimal.ZERO) <= 0) {
+            throw  new IllegalArgumentException("Valor inválido para depósito!");
+        }
+        saldo = saldo.add(valorDeposito);
+    }
+
 
     public Long getId() {
         return id;
